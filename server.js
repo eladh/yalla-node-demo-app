@@ -6,7 +6,6 @@ function msleep(n) {
 }
 
 var server = http.createServer(function(req, resp){
-	msleep(4*1000);
 	fileSystem.readFile('./index.html', function(error, fileContent){
 		if(error){
 			resp.writeHead(500, {'Content-Type': 'text/plain'});
