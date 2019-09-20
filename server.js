@@ -1,6 +1,9 @@
 
 var http = require('http');
 var fileSystem = require('fs');
+function msleep(n) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
+}
 
 var server = http.createServer(function(req, resp){
 	fileSystem.readFile('./index.html', function(error, fileContent){
